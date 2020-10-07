@@ -1,0 +1,27 @@
+@mixin setLogo($image, $width: 400px, $height:190px) {
+    width: $width;
+    height: $height;
+    background:url($image) no-repeat 0 50px;
+}
+
+@mixin setFooter($image, $color, $width: 100%, $height:120px) {
+    width:$width;
+    height:$height;
+    background:$image;
+    color:$color;
+}
+
+@mixin setHeader($color, $weight, $size, $line-height: 0) {
+    color: $color;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $line-height;
+}
+
+@mixin break($args...) {
+    @if length($args) == 1 {
+        @media (max-width: nth($args, 1)) {
+            @content;
+        }
+    } 
+}
